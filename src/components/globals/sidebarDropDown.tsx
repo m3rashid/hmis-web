@@ -20,38 +20,28 @@ const SidebarDropdown: Component<IRoute> = (props) => {
           <Icon path={props.icon} class='w-5' />
           {props.label}
         </A>
-
-        <Switch>
-          <Match when={getDropdownOpen()}>
-            <Icon path={chevronUp} class='w-5 text-gray-200' />
-          </Match>
-          <Match when={!getDropdownOpen()}>
-            <Icon path={chevronDown} class='w-5 text-gray-200' />
-          </Match>
-        </Switch>
+        <div class=''>
+          <Switch>
+            <Match when={getDropdownOpen()}>
+              <Icon path={chevronUp} class='w-5 text-gray-200' />
+            </Match>
+            <Match when={!getDropdownOpen()}>
+              <Icon path={chevronDown} class='w-5 text-gray-200' />
+            </Match>
+          </Switch>
+        </div>
       </div>
 
-      {/* <!--
-				Dropdown menu, show/hide based on menu state.
-
-				Entering: "transition ease-out duration-100"
-					From: "transform opacity-0 scale-95"
-					To: "transform opacity-100 scale-100"
-				Leaving: "transition ease-in duration-75"
-					From: "transform opacity-100 scale-100"
-					To: "transform opacity-0 scale-95"
-				--> */}
-
+      {/* Dropdown menu, show/hide based on menu state */}
       <Show when={getDropdownOpen()}>
         <div
-          class='w-full pl-8 focus:outline-none'
+          class='w-full focus:outline-none pl-8'
           role='menu'
           aria-orientation='vertical'
           aria-labelledby='menu-button'
           tabindex='-1'
         >
           <div class='py-1' role='none'>
-            {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
             <For each={props.nestedLinks}>
               {(nestedLink) => (
                 <Show when={nestedLink.showInNav}>

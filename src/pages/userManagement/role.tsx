@@ -1,11 +1,30 @@
 import type { Component } from 'solid-js';
-import TableHoc from '../../components/tableHoc';
+import Table from '../../components/table';
+import { TableProps } from '../../components/table/useTable';
+import { MODELS } from '@hmis/gatekeeper';
+import apiService from '../../api/service';
 
 const Role: Component = () => {
+  const columns: TableProps<MODELS.IRole>['columns'] = [
+    { key: 'displayName', title: 'Name', class: 'w-[80px]' },
+    { key: 'description', title: 'Description' },
+    // { key: 'permissions', title: 'Permissions' },
+  ];
+
   return (
-    <div>
-      <TableHoc addButtonLabel='Add Role' title='Roles' />
-    </div>
+    <>
+      <Table<MODELS.IRole>
+        addButtonLabel='Add Role'
+        title='Roles'
+        columns={columns}
+        description='Roles'
+        services={{
+          list: apiService('/role/all', 'GET'),
+        }}
+        showCreatedAt
+        showUpdatedAt
+      />
+    </>
   );
 };
 

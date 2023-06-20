@@ -1,4 +1,5 @@
 import {
+  Accessor,
   Component,
   createContext,
   createSignal,
@@ -25,8 +26,8 @@ export const authDefaultState: IAuth = {
   error: null,
 };
 
-export const authContext = createContext<[IAuth, Setter<IAuth>]>([
-  authDefaultState,
+export const authContext = createContext<[Accessor<IAuth>, Setter<IAuth>]>([
+  () => authDefaultState,
   (() => {}) as Setter<IAuth>,
 ]);
 
@@ -35,7 +36,7 @@ export const AuthContextProvider: Component<{ children: JSX.Element }> = (
 ) => {
   const [auth, setAuth] = createSignal<IAuth>(authDefaultState);
   return (
-    <authContext.Provider value={[auth(), setAuth]}>
+    <authContext.Provider value={[auth, setAuth]}>
       {props.children}
     </authContext.Provider>
   );

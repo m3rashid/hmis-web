@@ -6,14 +6,14 @@ interface IProps {}
 
 const AuthActions: Component<IProps> = () => {
   const [ui, setUi] = useUi();
-  const [auth, setAuth] = useAuth();
+  const [getAuth, setAuth] = useAuth();
   const [getAuthModalVisible, setAuthModalVisible] = createSignal(false);
   return (
     <>
-      <Match when={auth.isLoggedIn}>
+      <Match when={getAuth().isLoggedIn}>
         <p>user Logged in</p>
       </Match>
-      <Match when={!auth.isLoggedIn}>
+      <Match when={!getAuth().isLoggedIn}>
         <p>user not Logged in</p>
       </Match>
     </>

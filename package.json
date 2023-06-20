@@ -19,7 +19,8 @@
     "lodash.debounce": "^4.0.8",
     "socket.io-client": "^4.6.2",
     "solid-heroicons": "^3.2.4",
-    "solid-js": "^1.7.6"
+    "solid-js": "^1.7.6",
+    "solid-transition-group": "^0.2.2"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
