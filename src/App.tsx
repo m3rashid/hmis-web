@@ -1,4 +1,4 @@
-import { Route, Routes } from '@solidjs/router';
+import { Route, Routes, Navigate } from '@solidjs/router';
 import { For, type Component, Show, Switch, Match } from 'solid-js';
 import { routes } from './components/globals/routes';
 
@@ -8,24 +8,28 @@ const App: Component = () => {
       <Routes>
         <For each={routes}>
           {(route) => (
-            <Switch>
-              <Match when={route.nestedLinks}>
-                <For each={route.nestedLinks}>
-                  {(nestedLink) => (
-                    <Show when={nestedLink.Component}>
-                      <Route
-                        path={nestedLink.link}
-                        component={nestedLink.Component}
-                      />
-                    </Show>
-                  )}
-                </For>
-              </Match>
+            <>
+              <Switch>
+                <Match when={route.nestedLinks}>
+                  <For each={route.nestedLinks}>
+                    {(nestedLink) => (
+                      <Show when={nestedLink.Component}>
+                        <Route
+                          path={nestedLink.link}
+                          component={nestedLink.Component}
+                        />
+                      </Show>
+                    )}
+                  </For>
+                </Match>
 
-              <Match when={!route.nestedLinks && route.Component}>
-                <Route path={route.link} component={route.Component} />
-              </Match>
-            </Switch>
+                <Match when={!route.nestedLinks && route.Component}>
+                  <Route path={route.link} component={route.Component} />
+                </Match>
+              </Switch>
+
+              <Route path='*' component={() => <Navigate href='/error' />} />
+            </>
           )}
         </For>
       </Routes>

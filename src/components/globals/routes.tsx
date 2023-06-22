@@ -26,6 +26,7 @@ import { IconPath } from '../../helpers/types';
 
 const Home = lazy(() => import('../../pages/home'));
 const About = lazy(() => import('../../pages/about'));
+const Error = lazy(() => import('../../pages/error'));
 const Settings = lazy(() => import('../../pages/settings'));
 const Payments = lazy(() => import('../../pages/payments'));
 const LabManagement = lazy(() => import('../../pages/lab'));
@@ -279,5 +280,12 @@ export const routes: Array<IRoute> = [
     link: '/about',
     showInNav: true,
     Component: About,
+  },
+  {
+    icon: informationCircle,
+    label: 'Error',
+    link: '/error',
+    showInNav: false,
+    Component: Error,
   },
 ];

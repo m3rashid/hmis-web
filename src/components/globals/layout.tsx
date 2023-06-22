@@ -1,28 +1,22 @@
-import { createQuery } from '@tanstack/solid-query';
 import { Component, JSX, Show, Suspense, createSignal } from 'solid-js';
-import apiService from '../../api/service';
 import Loading from '../atoms/loading';
 import Sidebar from './sidebar';
 import { Icon } from 'solid-heroicons';
-import {
-  bars_3,
-  bell,
-  chevronDown,
-  magnifyingGlass,
-  xMark,
-} from 'solid-heroicons/outline';
+import { bars_3, bell, magnifyingGlass, xMark } from 'solid-heroicons/outline';
 import { Transition } from 'solid-transition-group';
+import { useLocation } from '@solidjs/router';
 
 interface IProps {
   children: JSX.Element | JSX.Element[];
 }
 
+const unShowRoutes = ['/', '/error'];
+
 const AppLayout: Component<IProps> = (props) => {
   const [getSidebarOpen, setSidebarOpen] = createSignal(false);
-  // const query = createQuery({
-  //   queryKey: () => ['config'],
-  //   queryFn: apiService('/config', 'GET'),
-  // });
+  const location = useLocation();
+
+  if (unShowRoutes.includes(location.pathname)) return props.children;
 
   return (
     <Suspense fallback={<Loading loading={true} />}>
