@@ -1,6 +1,7 @@
 {
   "name": "hmis-web",
   "version": "0.0.0",
+  "license": "MIT",
   "description": "",
   "scripts": {
     "start": "vite",
@@ -8,7 +9,6 @@
     "build": "vite build",
     "serve": "vite preview"
   },
-  "license": "MIT",
   "dependencies": {
     "@hmis/gatekeeper": "workspace:*",
     "@solidjs/router": "^0.8.2",

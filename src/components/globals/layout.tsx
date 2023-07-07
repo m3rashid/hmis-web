@@ -1,10 +1,10 @@
-import { Component, JSX, Show, Suspense, createSignal } from 'solid-js';
-import Loading from '../atoms/loading';
 import Sidebar from './sidebar';
+import Loading from '../atoms/loading';
 import { Icon } from 'solid-heroicons';
-import { bars_3, bell, magnifyingGlass, xMark } from 'solid-heroicons/outline';
-import { Transition } from 'solid-transition-group';
 import { useLocation } from '@solidjs/router';
+import { Transition } from 'solid-transition-group';
+import { Component, JSX, Show, Suspense, createSignal } from 'solid-js';
+import { bars_3, bell, magnifyingGlass, xMark } from 'solid-heroicons/outline';
 
 interface IProps {
   children: JSX.Element | JSX.Element[];
