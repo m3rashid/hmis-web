@@ -23,7 +23,7 @@ export interface TableProps<T extends Record<string, any>> {
   };
   columns: Array<ColumnType<T>>;
   title: string;
-  description: string;
+  description?: string;
   addButtonLabel: string;
   showCreatedTime?: boolean;
   showUpdatedTime?: boolean;

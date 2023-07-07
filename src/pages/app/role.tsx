@@ -6,7 +6,7 @@ import apiService from '../../api/service';
 
 const Role: Component = () => {
   const columns: TableProps<MODELS.IRole>['columns'] = [
-    { key: 'displayName', title: 'Name', class: 'w-[80px]' },
+    { key: 'name', title: 'Name', class: 'w-[80px]' },
     { key: 'description', title: 'Description' },
     // { key: 'permissions', title: 'Permissions' },
   ];
@@ -17,7 +17,6 @@ const Role: Component = () => {
         addButtonLabel='Add Role'
         title='Roles'
         columns={columns}
-        description='Roles'
         services={{
           list: apiService('/role/all', 'GET'),
         }}

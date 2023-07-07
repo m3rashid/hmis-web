@@ -62,7 +62,7 @@ const Table = <T extends Record<string, any>>(props: TableProps<T>) => {
       {/* Table */}
       <div class='mt-8 flow-root overflow-y-auto h-[100%] rounded-md'>
         <div class='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
-          <div class='inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8'>
+          <div class='inline-block min-w-full py-2 align-middle px-2 sm:px-6 lg:px-8'>
             <table class='min-w-full divide-y divide-gray-300 shadow-md'>
               <thead>
                 <tr class='bg-gray-200 rounded-md'>
@@ -75,7 +75,7 @@ const Table = <T extends Record<string, any>>(props: TableProps<T>) => {
                         state.getQuery.data?.data.docs.length
                       }
                       onClick={(e) => {
-                        actions.checkUncheckAllRows(e.target.checked);
+                        actions.checkUncheckAllRows(e.currentTarget.checked);
                       }}
                     />
                   </th>
@@ -113,7 +113,7 @@ const Table = <T extends Record<string, any>>(props: TableProps<T>) => {
                               .includes(tableData._id)}
                             onClick={(e) => {
                               actions.checkUncheckRow(
-                                e.target.checked,
+                                e.currentTarget.checked,
                                 tableData._id
                               );
                             }}
