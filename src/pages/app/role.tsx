@@ -18,7 +18,7 @@ const Role: Component = () => {
         title='Roles'
         columns={columns}
         services={{
-          list: apiService('/role/all', 'GET'),
+          list: apiService('/role/role/all'),
         }}
         showCreatedAt
         showUpdatedAt

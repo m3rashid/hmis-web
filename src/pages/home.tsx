@@ -1,7 +1,7 @@
 import { Icon } from 'solid-heroicons';
-import { archiveBox, user, userPlus } from 'solid-heroicons/outline';
 import type { Component } from 'solid-js';
 import { configDefaultState } from '../context/config';
+import { archiveBox, user, userPlus } from 'solid-heroicons/outline';
 
 export const featuresData = [
   {
@@ -92,6 +92,7 @@ const Home: Component = () => {
 
           <img class='max-w-[500px]' src='/images/hospital.png' />
         </div>
+        BU
       </div>
 
       <div class='py-6 sm:py-16'>
